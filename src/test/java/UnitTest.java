@@ -20,4 +20,18 @@ public class UnitTest {
     ShippingCalculator testShippingCalculator = new ShippingCalculator(3,4,3);
     assertEquals(21, testShippingCalculator.getCost(3, 200));
   }
+
+  @Test
+  public void newPackage_returnsSurfaceArea() {
+    ShippingCalculator testShippingCalculator = new ShippingCalculator(3,4,3);
+    assertEquals(66, testShippingCalculator.getSurfaceArea());
+  }
+
+  @Test
+  public void newPackage_returnGiftWrapCost() {
+    ShippingCalculator testShippingCalculator = new ShippingCalculator(3,4,3);
+    testShippingCalculator.getSurfaceArea();
+    testShippingCalculator.getCost(3,200);
+    assertEquals(26, testShippingCalculator.getGiftWrapCost());
+  }
 }

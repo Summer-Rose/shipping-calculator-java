@@ -24,11 +24,15 @@ public class App {
       int height = Integer.parseInt(request.queryParams("height"));
       int distance = Integer.parseInt(request.queryParams("distance"));
       int speed = Integer.parseInt(request.queryParams("speed"));
+      String giftWrap = request.queryParams("gift-wrap");
 
       ShippingCalculator myShippingCalculator = new ShippingCalculator(length, width, height);
       model.put("getCost", myShippingCalculator.getCost(speed, distance));
       model.put("myShippingCalculator", myShippingCalculator);
       model.put("speed", speed);
+      model.put("getSurfaceArea", myShippingCalculator.getSurfaceArea());
+      model.put("getGiftWrapCost", myShippingCalculator.getGiftWrapCost());
+      model.put("giftWrap", giftWrap);
 
       model.put("template", "templates/home.vtl");
       return new ModelAndView(model, layout);

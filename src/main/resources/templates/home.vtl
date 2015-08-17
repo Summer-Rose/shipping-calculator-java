@@ -26,6 +26,13 @@
     <input type="radio" name="speed" value="2">Express
     <input type="radio" name="speed" value="3">Overnight
   </div>
+  <div class="form-group">
+    <p>Do you want your package gift wrapped?</p>
+    <select name="gift-wrap">
+      <option value="no" selected>No</option>
+      <option value="yes" selected>Yes</option>
+    </select>
+  </div>
   <button type="submit" class="btn btn-submit">Calculate</button>
 </form>
 <br>
@@ -39,5 +46,10 @@
   #elseif ($speed == 1)
   <p>Shipment Speed: Ground</p>
   #end
-<h3>Total Shipping Costs: $getCost</h3>
+
+  #if ($giftWrap == "no")
+  <h3>Total Shipping Costs: $getCost</h3>
+  #else
+  <h3>Total Shipping Costs: $getGiftWrapCost</h3>
+  #end
 #end
